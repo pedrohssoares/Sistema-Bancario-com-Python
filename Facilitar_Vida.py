@@ -9,7 +9,7 @@ extrato = []
 def Registrar_Operacao(tipo, valor_operacao):
     global extrato
     transacao = {
-        "Data e Hora": datetime.now().strftime('%d/%m/%Y %H:%M:%S'),
+        "Data e Hora": datetime.now(),
         "Tipo": tipo,
         "Valor": valor_operacao
     }
