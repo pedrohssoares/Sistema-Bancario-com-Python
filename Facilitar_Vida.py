@@ -87,7 +87,7 @@ def Depositar():
 def Extrato():
     Limpar_Terminal()
     print('Extrato de operações: ')
-    for transacao in Extrato:
+    for transacao in extrato:
         print(f"{transacao['data_hora']} - {transacao['tipo']}: R${transacao['valor']:.2f}")
     input('Aperte ENTER para sair.')
     Limpar_Terminal
