@@ -1,3 +1,5 @@
+from time import sleep
+
 import os
 
 Saldo = float(2000)
@@ -21,35 +23,50 @@ def Sacar():
     
     if Qtd_Saques == LIMITE_SAQUES:
         print("Você atingiu o limite de saques diários")
+        sleep(1)
+        Limpar_Terminal()
         return
-    
+        
     if saldo_disponivel_para_sacar == 0:
         print(f"Você não pode sacar mais de R${VALOR_LIMITE_SAQUE:.2f} em um dia.")
+        sleep(1)
+        Limpar_Terminal()
         return
     
     if Saldo == 0:
         print("Seu saldo é igual a 0, deposite alguma quantia para conseguir sacar.")
+        sleep(1)
+        Limpar_Terminal()
         return
     
     print(f'Saldo disponível para saque: R${saldo_disponivel_para_sacar:.2f}.')
     valor = float(input(f"Digite a quantidade que você deseja sacar até R${VALOR_LIMITE_SAQUE_UNITARIO:.2f}:  "))
     if valor < 0:
         print("Você não pode sacar uma quantidade negativa.")
+        sleep(1)
+        Limpar_Terminal()
         return
     if valor > Saldo:
         print("Você não tem saldo suficiente para sacar esse valor.")
+        sleep(1)
+        Limpar_Terminal()
         return
     elif valor > VALOR_LIMITE_SAQUE_UNITARIO:
         print(f"O valor máximo que você pode sacar é R${VALOR_LIMITE_SAQUE_UNITARIO}")
+        sleep(1)
+        Limpar_Terminal()
         return
     elif valor > saldo_disponivel_para_sacar:
         print(f"Você não pode sacar mais de R${saldo_disponivel_para_sacar:.2f}")
+        sleep(1)
+        Limpar_Terminal()
         return
     else:
         Saldo -= valor
         valor_sacado += valor
         Qtd_Saques += 1
         print('Operação realizada com sucesso!')
+        sleep(1)
         Limpar_Terminal()
 
     
