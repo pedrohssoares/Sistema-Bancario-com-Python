@@ -84,6 +84,11 @@ def Sacar():
 def Depositar():
     global Saldo
     valor = float(input('Digite o valor que você quer depositar:  R$'))
+    if valor <= 0:
+        print("Você deve depositar um valor positivo.")
+        sleep(1)
+        Limpar_Terminal()
+        return
     Saldo += valor
     Registrar_Operacao('Depósito', valor)
     print('Operação realizada com sucesso!')
