@@ -5,7 +5,7 @@ import os
 
 Saldo = float(2000)
 
-Extrato = []
+extrato = []
 def Registrar_Operacao(tipo, valor_operacao):
     global Saldo
     transacao = {
@@ -85,7 +85,10 @@ def Depositar():
     global Saldo
 
 def Extrato():
+    Limpar_Terminal()
     print('Extrato de operações: ')
     for transacao in Extrato:
-        print(f"{transacao['data_hora']} - {transacao['tipo']}: R${transacao['valor']:.2f}")    
+        print(f"{transacao['data_hora']} - {transacao['tipo']}: R${transacao['valor']:.2f}")
+    input('Aperte ENTER para sair.')
+    Limpar_Terminal
     

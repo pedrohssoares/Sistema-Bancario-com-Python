@@ -1,5 +1,4 @@
-from Facilitar_Vida import Sacar
-from time import sleep
+from Facilitar_Vida import Sacar, Extrato
 
 MENU = '''
 
@@ -16,12 +15,11 @@ while True:
     opcao = input(str(MENU))
     
     if opcao.lower() == 's':
-        input
         Sacar()
     elif opcao.lower() == 'd':
         print('')
     elif opcao.lower() == 'e':
-        print('Consultar Extrato')
+        Extrato()
     elif opcao.lower() == 'q':
         break
     else:
