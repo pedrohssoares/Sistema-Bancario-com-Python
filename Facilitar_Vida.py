@@ -1,9 +1,20 @@
+from datetime import datetime
 from time import sleep
 
 import os
 
 Saldo = float(2000)
 
+Extrato = []
+def Registrar_Operacao(tipo, valor_operacao):
+    global Saldo
+    transacao = {
+        "Data e Hora": datetime.now().strftime('%d/%m/%Y %H:%M:%S'),
+        "Tipo": tipo,
+        "Valor": valor_operacao
+    }
+    Extrato.append(transacao)
+    
 def Limpar_Terminal():
     if os.name == 'nt':
         os.system('cls')
@@ -65,8 +76,16 @@ def Sacar():
         Saldo -= valor
         valor_sacado += valor
         Qtd_Saques += 1
+        Registrar_Operacao('Saque', valor)
         print('Operação realizada com sucesso!')
         sleep(1)
         Limpar_Terminal()
 
+def Depositar():
+    global Saldo
+
+def Extrato():
+    print('Extrato de operações: ')
+    for transacao in Extrato:
+        print(f"{transacao['data_hora']} - {transacao['tipo']}: R${transacao['valor']:.2f}")    
     
