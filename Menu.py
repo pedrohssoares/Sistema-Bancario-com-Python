@@ -1,4 +1,4 @@
-from Facilitar_Vida import Sacar, Extrato
+from Facilitar_Vida import Sacar, Extrato, Depositar
 
 MENU = '''
 
@@ -17,7 +17,7 @@ while True:
     if opcao.lower() == 's':
         Sacar()
     elif opcao.lower() == 'd':
-        print('')
+        Depositar()
     elif opcao.lower() == 'e':
         Extrato()
     elif opcao.lower() == 'q':

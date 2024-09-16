@@ -9,6 +9,7 @@ O sistema bancário oferece as seguintes funcionalidades:
 - **Depósitos:** Permite realizar depósitos nas contas existentes.
 - **Saques:** Realiza saques de valores disponíveis nas contas.
 - **Consulta de Saldo:** Exibe o saldo atual das contas.
+- **Extrato:** Gera um relatório de todas as operações realizadas em uma execução
 
 ## Tecnologias Utilizadas
 
@@ -27,7 +28,7 @@ Este projeto tem como objetivo a prática dos conceitos aprendidos durante o cur
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/sistema-bancario-python.git
+   git clone https://github.com/pedrohssoares/Sistema-Bancario-com-Python
 
 2. Execute o sistema
    ```bash
