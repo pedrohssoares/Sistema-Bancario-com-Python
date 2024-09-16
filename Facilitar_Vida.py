@@ -50,6 +50,7 @@ def Sacar():
         Limpar_Terminal()
         return
     
+    print(f'Saldo total: R${Saldo}')
     print(f'Saldo disponível para saque: R${saldo_disponivel_para_sacar:.2f}.')
     valor = float(input(f"Digite a quantidade que você deseja sacar até R${VALOR_LIMITE_SAQUE_UNITARIO:.2f}:  "))
     if valor < 0:
@@ -96,8 +97,10 @@ def Depositar():
     Limpar_Terminal()
 
 def Extrato():
+    global Saldo
     Limpar_Terminal()
     print('Extrato de operações: ')
+    print(f'Saldo total: R${Saldo}')
     for transacao in extrato:
         print(f"{transacao['data_hora']} - {transacao['tipo']}: R${transacao['valor']:.2f}")
     input('Aperte ENTER para sair.')
