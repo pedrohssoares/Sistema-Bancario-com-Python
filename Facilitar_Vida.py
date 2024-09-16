@@ -9,7 +9,7 @@ extrato = []
 def Registrar_Operacao(tipo, valor_operacao):
     global extrato
     transacao = {
-        "data_hora": datetime.now().strftime("%d/%m/%Y, %H:%M:%S"),
+        "data_hora": datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
         "tipo": tipo,
         "valor": valor_operacao
     }
@@ -83,6 +83,12 @@ def Sacar():
 
 def Depositar():
     global Saldo
+    valor = float(input('Digite o valor que você quer depositar:  R$'))
+    Saldo += valor
+    Registrar_Operacao('Depósito', valor)
+    print('Operação realizada com sucesso!')
+    sleep(1)
+    Limpar_Terminal()
 
 def Extrato():
     Limpar_Terminal()
