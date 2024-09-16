@@ -7,13 +7,13 @@ Saldo = float(2000)
 
 extrato = []
 def Registrar_Operacao(tipo, valor_operacao):
-    global Saldo
+    global extrato
     transacao = {
         "Data e Hora": datetime.now().strftime('%d/%m/%Y %H:%M:%S'),
         "Tipo": tipo,
         "Valor": valor_operacao
     }
-    Extrato.append(transacao)
+    extrato.append(transacao)
     
 def Limpar_Terminal():
     if os.name == 'nt':
