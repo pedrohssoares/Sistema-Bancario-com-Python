@@ -23,7 +23,7 @@ def Limpar_Terminal():
 
 VALOR_LIMITE_SAQUE = float(1500)
 VALOR_LIMITE_SAQUE_UNITARIO = float(500)        
-LIMITE_SAQUES = 3
+LIMITE_SAQUES = 10
 valor_sacado = float(0)
 Qtd_Saques = 0
 
