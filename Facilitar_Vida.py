@@ -1,9 +1,17 @@
+from Conexao_bd import Conexao
 from datetime import datetime
 from time import sleep
-
 import os
 
-Saldo = float(2000)
+def Limpar_Terminal():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
+
+
+conexao = Conexao()
+cursor = conexao.cursor()
 
 extrato = []
 def Registrar_Operacao(tipo, valor_operacao):
@@ -15,17 +23,16 @@ def Registrar_Operacao(tipo, valor_operacao):
     }
     extrato.append(transacao)
     
-def Limpar_Terminal():
-    if os.name == 'nt':
-        os.system('cls')
-    else:
-        os.system('clear')
 
 VALOR_LIMITE_SAQUE = float(1500)
 VALOR_LIMITE_SAQUE_UNITARIO = float(500)        
 LIMITE_SAQUES = 10
 valor_sacado = float(0)
 Qtd_Saques = 0
+
+def Consultar_Saldo(Cpf):
+    Saldo = float(cursor.callproc('ConsultaSaldo', Cpf))
+    return(Saldo)
 
 def Sacar():
     global Saldo, valor_sacado, Qtd_Saques

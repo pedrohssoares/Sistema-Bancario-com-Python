@@ -1,18 +1,27 @@
-from Facilitar_Vida import Sacar, Extrato, Depositar
+from Facilitar_Vida import Sacar, Extrato, Depositar, Limpar_Terminal
 
-MENU = '''
+login = input("Digite o login: ")
+senha = input("Digite a senha: ")
 
-Bem vindo! O que você deseja fazer?
-
-[d] Depositar
-[s] Sacar
-[e] Consultar Extrato
-[q] Sair
-
-'''
+while VerificarLogin(login, senha) == False:
+     Limpar_Terminal()
+     print("Login Inválido")
+     login = input("Digite o login: ")
+     senha = input("Digite a senha: ")
 
 while True:
-    opcao = input(str(MENU))
+    opcao = input(str(
+        f'''
+
+        Bem vindo {Login}! O que você deseja fazer?
+
+        [d] Depositar
+        [s] Sacar
+        [e] Consultar Extrato
+        [q] Sair
+
+        '''
+    ))
     
     if opcao.lower() == 's':
         Sacar()
