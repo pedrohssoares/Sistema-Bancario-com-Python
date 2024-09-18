@@ -1,19 +1,21 @@
-from Facilitar_Vida import Sacar, Extrato, Depositar, Limpar_Terminal
+from Facilitar_Vida import Sacar, Extrato, Depositar, Limpar_Terminal, VerificarLogin, Nome_Cliente
 
-login = input("Digite o login: ")
+cpf = input("Digite o CPF: ")
 senha = input("Digite a senha: ")
 
-while VerificarLogin(login, senha) == False:
+while VerificarLogin(cpf, senha) == False:
      Limpar_Terminal()
-     print("Login Inválido")
-     login = input("Digite o login: ")
+     print("CPF ou Senha Inválido")
+     cpf = input("Digite o CPF: ")
      senha = input("Digite a senha: ")
+
+
 
 while True:
     opcao = input(str(
         f'''
 
-        Bem vindo {Login}! O que você deseja fazer?
+        Bem vindo{Nome_Cliente(cpf)}! O que você deseja fazer?
 
         [d] Depositar
         [s] Sacar

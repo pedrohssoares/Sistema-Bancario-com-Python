@@ -19,11 +19,10 @@ O sistema bancário oferece as seguintes funcionalidades:
 
 Este projeto tem como objetivo a prática dos conceitos aprendidos durante o curso, como:
 
-- Programação Orientada a Objetos (POO)
 - Operações básicas de um sistema bancário
-- Uso de classes e objetos em Python
 - Manipulação de dados em Python
 - Uso de funções e métodos em Python
+
 ## Como Executar
 
 1. Clone o repositório:

@@ -3,15 +3,52 @@ from datetime import datetime
 from time import sleep
 import os
 
+conexao = Conexao()
+cursor = conexao.cursor()
+
 def Limpar_Terminal():
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
 
+def VerificarLogin(vcpf, vsenha):
+    conexao = Conexao()
+    if conexao:
+        cursor = conexao.cursor()
 
-conexao = Conexao()
-cursor = conexao.cursor()
+        # Defina a consulta SQL como uma string
+        comando = "SELECT * FROM TbLogin WHERE cpf = %s AND senha = %s"
+        
+        # Execute a consulta passando os parâmetros corretamente
+        cursor.execute(comando, (vcpf, vsenha))
+
+        # Busca o primeiro registro que corresponda
+        resultado = cursor.fetchone()
+
+        cursor.close()
+        conexao.close()
+
+        # Verifique se o resultado foi encontrado
+        if resultado:
+            return True
+        else:
+            return False
+    
+def Nome_Cliente(cpf):
+    conexao = Conexao()
+    if conexao:
+        cursor = conexao.cursor()
+        cursor.execute(f"SELECT Nome FROM TbLogin WHERE cpf = {cpf}")
+        resultado = cursor.fetchone()
+        cursor.close()
+        conexao.close()
+        
+        nome = str(resultado).split(0)
+        if nome is not None:
+            return(nome)
+        else:
+            return None
 
 extrato = []
 def Registrar_Operacao(tipo, valor_operacao):
@@ -29,10 +66,10 @@ VALOR_LIMITE_SAQUE_UNITARIO = float(500)
 LIMITE_SAQUES = 10
 valor_sacado = float(0)
 Qtd_Saques = 0
+Saldo = float(cursor.callproc('ConsultaSaldo', Cpf))
 
-def Consultar_Saldo(Cpf):
-    Saldo = float(cursor.callproc('ConsultaSaldo', Cpf))
-    return(Saldo)
+
+
 
 def Sacar():
     global Saldo, valor_sacado, Qtd_Saques
